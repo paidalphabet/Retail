@@ -6,21 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rtms.spring.dao.EmployeeDao;
-import com.rtms.spring.model.Employee;
+import com.rtms.entity.user.User;
+import com.rtms.spring.dao.UserDao;
 
 @Service("employeeService")
 @Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
-	private EmployeeDao dao;
+	private UserDao dao;
 	
-	public Employee findById(int id) {
+	public User findById(int id) {
 		return dao.findById(id);
 	}
 
-	public void saveEmployee(Employee employee) {
+	public void saveEmployee(User employee) {
 		dao.saveEmployee(employee);
 	}
 
@@ -29,31 +29,28 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 * Just fetch the entity from db and update it with proper values within transaction.
 	 * It will be updated in db once transaction ends. 
 	 */
-	public void updateEmployee(Employee employee) {
-		Employee entity = dao.findById(employee.getId());
+	public void updateEmployee(User userObj) {
+		User entity = dao.findById(userObj.getUserID());
 		if(entity!=null){
-			entity.setName(employee.getName());
-			entity.setJoiningDate(employee.getJoiningDate());
-			entity.setSalary(employee.getSalary());
-			entity.setSsn(employee.getSsn());
+			entity.setFirstName(userObj.getFirstName());
 		}
 	}
 
 	public void deleteEmployeeBySsn(String ssn) {
-		dao.deleteEmployeeBySsn(ssn);
+		dao.deleteUserByLoginID(ssn);
 	}
 	
-	public List<Employee> findAllEmployees() {
-		return dao.findAllEmployees();
+	public List<User> findAllEmployees() {
+		return dao.findAllUsers();
 	}
 
-	public Employee findEmployeeBySsn(String ssn) {
-		return dao.findEmployeeBySsn(ssn);
+	public User findEmployeeBySsn(String ssn) {
+		return dao.findUserByLoginID(ssn);
 	}
 
 	public boolean isEmployeeSsnUnique(Integer id, String ssn) {
-		Employee employee = findEmployeeBySsn(ssn);
-		return ( employee == null || ((id != null) && (employee.getId() == id)));
+		User employee = findEmployeeBySsn(ssn);
+		return ( employee == null || ((id != null) && (employee.getUserID() == id)));
 	}
 	
 }

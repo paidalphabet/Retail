@@ -2,21 +2,21 @@ package com.rtms.spring.service;
 
 import java.util.List;
 
-import com.rtms.spring.model.Employee;
+import com.rtms.entity.user.User;
 
 public interface EmployeeService {
 
-	Employee findById(int id);
+	User findById(int id);
 	
-	void saveEmployee(Employee employee);
+	void saveEmployee(User employee);
 	
-	void updateEmployee(Employee employee);
+	void updateEmployee(User employee);
 	
 	void deleteEmployeeBySsn(String ssn);
 
-	List<Employee> findAllEmployees(); 
+	List<User> findAllEmployees(); 
 	
-	Employee findEmployeeBySsn(String ssn);
+	User findEmployeeBySsn(String ssn);
 
 	boolean isEmployeeSsnUnique(Integer id, String ssn);
 	
