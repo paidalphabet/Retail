@@ -24,11 +24,7 @@
 		</tr>
 		<c:forEach items="${employees}" var="employee">
 			<tr>
-			<td>${employee.name}</td>
-			<td>${employee.joiningDate}</td>
-			<td>${employee.salary}</td>
-			<td><a href="<c:url value='/edit-${employee.ssn}-employee' />">${employee.ssn}</a></td>
-			<td><a href="<c:url value='/delete-${employee.ssn}-employee' />">delete</a></td>
+			<td>${employee.firstName}</td>
 			</tr>
 		</c:forEach>
 	</table>

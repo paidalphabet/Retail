@@ -16,7 +16,11 @@ public class UserDaoImpl extends AbstractDao<Integer, User,User> implements User
 		return (User) getObjectByID(User.class,userID);
 	}
 
-	public void saveEmployee(User employee) {
+	public User findByID(long userID) {
+		return (User) getObjectByID(User.class,userID);
+	}
+
+	public void saveUser(User employee) {
 		persist(employee);
 	}
 
@@ -36,5 +40,12 @@ public class UserDaoImpl extends AbstractDao<Integer, User,User> implements User
 		Criteria criteria = createEntityCriteria();
 		criteria.add(Restrictions.eq("ssn", loginID));
 		return (User) criteria.uniqueResult();
+	}
+
+	public User getUserByLoginID(final String loginID) {
+		final String queryString = "select u from User u where u.loginID=:loginID";
+		Query query = getSession().createQuery(queryString);
+		query.setString("loginID", loginID);
+		return (User) query.uniqueResult();
 	}
 }

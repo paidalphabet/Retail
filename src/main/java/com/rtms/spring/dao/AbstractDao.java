@@ -1,4 +1,4 @@
-package com.rtms.spring.dao;
+	package com.rtms.spring.dao;
 
 import java.io.Serializable;
 
