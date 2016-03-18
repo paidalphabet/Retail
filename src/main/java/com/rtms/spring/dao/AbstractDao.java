@@ -9,7 +9,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class AbstractDao<PK extends Serializable, T> {
+import com.rtms.entity.BaseObject;
+
+public abstract class AbstractDao<PK extends Serializable, T, O extends BaseObject> {
 	
 	private final Class<T> persistentClass;
 	
@@ -28,6 +30,15 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 	@SuppressWarnings("unchecked")
 	public T getByKey(PK key) {
 		return (T) getSession().get(persistentClass, key);
+	}
+	
+	/**
+	 * @param clazz Persistence class
+	 * @param objectID object ID
+	 * @return
+	 */
+	public O getObjectByID(final Class clazz, long objectID){
+		return (O)getSession().get(clazz, objectID);
 	}
 
 	public void persist(T entity) {

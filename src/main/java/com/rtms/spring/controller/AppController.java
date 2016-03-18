@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.rtms.spring.model.Employee;
+import com.rtms.entity.user.User;
 import com.rtms.spring.service.EmployeeService;
 
 @Controller
@@ -34,7 +34,7 @@ public class AppController {
 	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
 	public String listEmployees(ModelMap model) {
 
-		List<Employee> employees = service.findAllEmployees();
+		List<User> employees = service.findAllEmployees();
 		model.addAttribute("employees", employees);
 		return "allemployees";
 	}
@@ -44,7 +44,7 @@ public class AppController {
 	 */
 	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
 	public String newEmployee(ModelMap model) {
-		Employee employee = new Employee();
+		User employee = new User();
 		model.addAttribute("employee", employee);
 		model.addAttribute("edit", false);
 		return "registration";
@@ -55,7 +55,7 @@ public class AppController {
 	 * saving employee in database. It also validates the user input
 	 */
 	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-	public String saveEmployee(@Valid Employee employee, BindingResult result,
+	public String saveEmployee(@Valid User user, BindingResult result,
 			ModelMap model) {
 
 		if (result.hasErrors()) {
@@ -70,15 +70,15 @@ public class AppController {
 		 * framework as well while still using internationalized messages.
 		 * 
 		 */
-		if(!service.isEmployeeSsnUnique(employee.getId(), employee.getSsn())){
-			FieldError ssnError =new FieldError("employee","ssn",messageSource.getMessage("non.unique.ssn", new String[]{employee.getSsn()}, Locale.getDefault()));
+		if(!service.isEmployeeSsnUnique((int) user.getUserID(), user.getEmailID())){
+			FieldError ssnError =new FieldError("employee","ssn",messageSource.getMessage("non.unique.ssn", new String[]{user.getFirstName()}, Locale.getDefault()));
 		    result.addError(ssnError);
 			return "registration";
 		}
 		
-		service.saveEmployee(employee);
+		service.saveEmployee(user);
 
-		model.addAttribute("success", "Employee " + employee.getName() + " registered successfully");
+		model.addAttribute("success", "Employee " + user.getFirstName() + " registered successfully");
 		return "success";
 	}
 
@@ -88,7 +88,7 @@ public class AppController {
 	 */
 	@RequestMapping(value = { "/edit-{ssn}-employee" }, method = RequestMethod.GET)
 	public String editEmployee(@PathVariable String ssn, ModelMap model) {
-		Employee employee = service.findEmployeeBySsn(ssn);
+		User employee = service.findEmployeeBySsn(ssn);
 		model.addAttribute("employee", employee);
 		model.addAttribute("edit", true);
 		return "registration";
@@ -99,22 +99,22 @@ public class AppController {
 	 * updating employee in database. It also validates the user input
 	 */
 	@RequestMapping(value = { "/edit-{ssn}-employee" }, method = RequestMethod.POST)
-	public String updateEmployee(@Valid Employee employee, BindingResult result,
+	public String updateEmployee(@Valid User employee, BindingResult result,
 			ModelMap model, @PathVariable String ssn) {
 
 		if (result.hasErrors()) {
 			return "registration";
 		}
 
-		if(!service.isEmployeeSsnUnique(employee.getId(), employee.getSsn())){
-			FieldError ssnError =new FieldError("employee","ssn",messageSource.getMessage("non.unique.ssn", new String[]{employee.getSsn()}, Locale.getDefault()));
+		if(!service.isEmployeeSsnUnique((int) employee.getUserID(), employee.getEmailID())){
+			FieldError ssnError =new FieldError("employee","ssn",messageSource.getMessage("non.unique.ssn", new String[]{employee.getFirstName()}, Locale.getDefault()));
 		    result.addError(ssnError);
 			return "registration";
 		}
 
 		service.updateEmployee(employee);
 
-		model.addAttribute("success", "Employee " + employee.getName()	+ " updated successfully");
+		model.addAttribute("success", "Employee " + employee.getFirstName()	+ " updated successfully");
 		return "success";
 	}
 
