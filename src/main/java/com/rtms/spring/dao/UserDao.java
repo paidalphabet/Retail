@@ -9,7 +9,9 @@ public interface UserDao {
 
 	User findById(long l);
 
-	void saveEmployee(User employee);
+	User findByID(long l);
+
+	void saveUser(User employee);
 	
 	void deleteUserByLoginID(String ssn);
 	
@@ -17,4 +19,5 @@ public interface UserDao {
 
 	User findUserByLoginID(String ssn);
 
+	public User getUserByLoginID(final String loginID);
 }

@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rtms.entity.user.User;
-import com.rtms.spring.service.EmployeeService;
+import com.rtms.spring.service.UserService;
 
 @Controller
 @RequestMapping("/")
-public class AppController {
+public class AppController extends BaseController{
 
 	@Autowired
-	EmployeeService service;
+	UserService service;
 	
 	@Autowired
 	MessageSource messageSource;
@@ -31,7 +31,6 @@ public class AppController {
 	/*
 	 * This method will list all existing employees.
 	 */
-	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
 	public String listEmployees(ModelMap model) {
 
 		List<User> employees = service.findAllEmployees();
@@ -76,7 +75,7 @@ public class AppController {
 			return "registration";
 		}
 		
-		service.saveEmployee(user);
+		service.saveUser(user);
 
 		model.addAttribute("success", "Employee " + user.getFirstName() + " registered successfully");
 		return "success";
@@ -112,7 +111,7 @@ public class AppController {
 			return "registration";
 		}
 
-		service.updateEmployee(employee);
+		service.updateUser(employee);
 
 		model.addAttribute("success", "Employee " + employee.getFirstName()	+ " updated successfully");
 		return "success";
@@ -124,7 +123,7 @@ public class AppController {
 	 */
 	@RequestMapping(value = { "/delete-{ssn}-employee" }, method = RequestMethod.GET)
 	public String deleteEmployee(@PathVariable String ssn) {
-		service.deleteEmployeeBySsn(ssn);
+		service.deleteUserByLoginID(ssn);
 		return "redirect:/list";
 	}
 

@@ -5,16 +5,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import com.rtms.entity.BaseObject;
 
-@Entity
+@Inheritance
 @Table(name = "USER")
 public class User extends BaseObject {
 
+	/**
+	 * Is the user shopper
+	 */
+	public static final String SHOPPER = "SHOPPER";
+
+	/**
+	 * is the user an internal user 
+	 */
+	public static final String ADMIN = "ADMIN";
+
 	@Id
+	@Column(name = "USER_ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long userID;
 
@@ -41,6 +53,18 @@ public class User extends BaseObject {
 	@Size(min = 3, max = 500)
 	@Column(name = "PASSWORD")
 	private String password;
+
+	@Size(min = 3, max = 500)
+	@Column(name = "SECURITY_QUESTION")	
+	private String securityQuestion;
+
+	@Size(min = 3, max = 500)
+	@Column(name = "SECURITY_ANSWER")
+	private String securityAnswer;
+
+	@Size(min = 3, max = 500)
+	@Column(name = "USER_TYPE")
+	private String userType;
 
 	/**
 	 * @return the userID

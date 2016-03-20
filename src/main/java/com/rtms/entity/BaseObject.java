@@ -10,11 +10,12 @@ public class BaseObject {
 	
 	@Column(name = "CREATION_DATE", columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date creationDate;
+	public Date creationDate;
 	
 	@Column(name = "MODIFICATION_DATE", columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modificationDate;
+	public Date modificationDate;
+
 	/**
 	 * @return the creationDate
 	 */
