@@ -5,10 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Entity;
 import javax.validation.constraints.Size;
 
 import com.rtms.entity.BaseObject;
-
+@Entity
 @Table(name = "USER")
 public class User extends BaseObject {
 
