@@ -1,17 +1,14 @@
 package com.rtms.entity.user;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import com.rtms.entity.BaseObject;
 
-@Inheritance
 @Table(name = "USER")
 public class User extends BaseObject {
 

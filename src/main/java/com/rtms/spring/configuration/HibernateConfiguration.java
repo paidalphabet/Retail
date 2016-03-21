@@ -29,7 +29,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.rtms.entity" });
+        sessionFactory.setPackagesToScan(new String[] { "com.rtms.entity.**" });
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
      }
