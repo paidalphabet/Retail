@@ -3,6 +3,7 @@ package com.rtms.spring.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -35,9 +36,10 @@ public class LoginController extends BaseController {
 		final String loginID = request.getParameter(LOGIN_ID);
 		final String password = request.getParameter(PASSWORD);
 		String redirectView = RedirectionConstants.VIEW_LOGIN;
-		boolean isUserAuthenticated = userService.validateLogin(loginID, password);
-		if(isUserAuthenticated){
-			redirectView = RedirectionConstants.VIEW_HOME_PAGE; 
+		final String userID = userService.validateLogin(loginID, password);
+		if(!StringUtils.isEmpty(userID)){
+			redirectView = RedirectionConstants.VIEW_HOME_PAGE;
+			userService.createUserSession(request, userID);
 		}
 		return new ModelAndView(redirectView);
 	}
