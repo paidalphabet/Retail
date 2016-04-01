@@ -2,9 +2,13 @@ package com.rtms.spring.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.rtms.entity.user.User;
 
 public interface UserService {
+	
+	public static final String USER_ID = "userID";
 
 	User findByID(int id);
 	
@@ -26,6 +30,8 @@ public interface UserService {
 	 * @param password password from the field
 	 * @return if the user is an authentic user or not.
 	 */
-	boolean validateLogin(String loginID, String password);
+	String validateLogin(final String loginID,final String password);
+
+	void createUserSession(final HttpServletRequest request, final String userID);
 	
 }
