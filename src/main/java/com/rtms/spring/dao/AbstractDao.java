@@ -34,7 +34,7 @@ public abstract class AbstractDao implements BaseDao {
 	@Override
 	public Object updateBusinessObject(final Object object) {
 		final Session session = getSession();
-		session.update(object);
+		session.saveOrUpdate(object);
 		return object;
 	}
 
