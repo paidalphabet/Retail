@@ -1,16 +1,17 @@
 package com.rtms.entity.user;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Entity;
 import javax.validation.constraints.Size;
 
 import com.rtms.entity.BaseObject;
 @Entity
-@Table(name = "USER")
+@Table(name = "USR_USER")
 public class User extends BaseObject {
 
 	/**
@@ -25,8 +26,10 @@ public class User extends BaseObject {
 
 	@Id
 	@Column(name = "USER_ID")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long userID;
+	@SequenceGenerator(name="USER_SEQ",sequenceName="USER_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String userID;
 
 	@Size(min = 3, max = 50)
 	@Column(name = "FIRST_NAME", nullable = false)
@@ -67,14 +70,14 @@ public class User extends BaseObject {
 	/**
 	 * @return the userID
 	 */
-	public long getUserID() {
+	public String getUserID() {
 		return userID;
 	}
 
 	/**
 	 * @param userID the userID to set
 	 */
-	public void setUserID(long userID) {
+	public void setUserID(final String userID) {
 		this.userID = userID;
 	}
 

@@ -1,10 +1,13 @@
-package com.rtms.spring.service;
+package com.rtms.user.service;
 
 import javax.servlet.http.HttpServletRequest;
 
-public interface UserService {
+import com.rtms.service.BaseService;
+
+public interface UserService extends BaseService {
 	
 	public static final String USER_ID = "userID";
+	public static final String SESSION_ID = "sessionID";
 
 	/**
 	 * returns if the user is a validated user or not.
