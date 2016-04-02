@@ -1,56 +1,41 @@
-	package com.rtms.spring.dao;
+package com.rtms.spring.dao;
 
-import java.io.Serializable;
-
-import java.lang.reflect.ParameterizedType;
-
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.rtms.entity.BaseObject;
+public abstract class AbstractDao implements BaseDao {
 
-public abstract class AbstractDao<PK extends Serializable, T, O extends BaseObject> {
-	
-	private final Class<T> persistentClass;
-	
-	@SuppressWarnings("unchecked")
-	public AbstractDao(){
-		this.persistentClass =(Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1];
-	}
-	
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	protected Session getSession(){
+	protected Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
 
-	@SuppressWarnings("unchecked")
-	public T getByKey(PK key) {
-		return (T) getSession().get(persistentClass, key);
-	}
-	
 	/**
-	 * @param clazz Persistence class
-	 * @param objectID object ID
+	 * @param clazz
+	 *            Persistence class
+	 * @param objectID
+	 *            object ID
 	 * @return
 	 */
-	public O getObjectByID(final Class clazz, long objectID){
-		return (O)getSession().get(clazz, objectID);
+	public Object getObjectByID(final Class clazz, long objectID) {
+		return getSession().get(clazz, objectID);
 	}
 
-	public void persist(T entity) {
-		getSession().persist(entity);
+	@Override
+	public Object saveBusinessObject(final Object object) {
+		final Session session = getSession();
+		session.save(object);
+		return object;
 	}
 
-	public void delete(T entity) {
-		getSession().delete(entity);
-	}
-	
-	protected Criteria createEntityCriteria(){
-		return getSession().createCriteria(persistentClass);
+	@Override
+	public Object updateBusinessObject(final Object object) {
+		final Session session = getSession();
+		session.update(object);
+		return object;
 	}
 
 }
