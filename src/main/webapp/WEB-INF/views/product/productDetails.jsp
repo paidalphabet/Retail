@@ -1,12 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Product Details Page</title>
-</head>
-<body>
-my product details page
-</body>
+	<head>
+	    <title>Product Details</title>
+	</head>
+	<body>
+	
+	<h2>Product Details</h2>
+	<form:form method="POST" action="product">
+		<div>
+			<form:hidden path="productID" id="productID"/>
+		</div>
+		<div>
+			<label>Name : </label>
+			<form:input path="productName" id="productName"/>
+		</div>
+		<div>
+			<label>Display Name : </label>
+			<form:input path="productDisplayName" id="productDisplayName"/>
+		</div>
+		<div>
+			<label>Selling Price : </label>
+			<form:input path="productSellingPrice" id="productSellingPrice"/>
+		</div>
+		<div>
+			<label>Cost Price : </label>
+			<form:input path="productCostPrice" id="productCostPrice"/>
+		</div>
+		<div>
+			<label>Margin : </label>
+			<form:input path="margin" id="margin"/>
+		</div>
+		<div>
+			<input type="submit"/>
+		</div>
+	</form:form>
+	</body>
 </html>
