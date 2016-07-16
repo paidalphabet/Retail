@@ -8,7 +8,5 @@ import org.springframework.context.ApplicationContext;
 import com.rtms.service.BaseService;
 
 public interface Plugin {
-	
 	public void execute(final HttpServletRequest request, final HttpServletResponse response, final ApplicationContext context, final BaseService service);
-
 }
