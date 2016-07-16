@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rtms.spring.redirection.constants.RedirectionConstants;
-import com.rtms.spring.service.UserService;
+import com.rtms.user.service.UserService;
 
 @Controller
 public class LoginController extends BaseController {

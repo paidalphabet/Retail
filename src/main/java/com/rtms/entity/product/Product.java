@@ -19,39 +19,39 @@ public class Product extends BaseObject {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long productID;
 
-	@Size(min = 3, max = 500)
+	@Size(max = 500)
 	@Column(name = "PRODUCT_NAME", nullable = false)
 	private String productName;
 
-	@Size(min = 3, max = 500)
+	@Size(max = 500)
 	@Column(name = "PRODUCT_DISPLAY_NAME", nullable = false)
 	private String productDisplayName;
 
-	@Size(min = 3, max = 500)
+	@Size(max = 500)
 	@Column(name = "THUMBNAIL_1", nullable = true)
 	private String thumbNail1;
 
-	@Size(min = 3, max = 500)
+	@Size(max = 500)
 	@Column(name = "THUMBNAIL_2")
 	private String thumbNail2;
 
-	@Size(min = 3, max = 500)
+	@Size(max = 500)
 	@Column(name = "ACTUAL_IMAGE")
 	private String actualImage;
 
-	@Size(min = 3, max = 50)
+	@Size(max = 50)
 	@Column(name = "PRODUCT_COST_PRICE")
 	private String productCostPrice;
 
-	@Size(min = 3, max = 50)
+	@Size(max = 50)
 	@Column(name = "PRODUCT_SELLING_PRICE")	
 	private String productSellingPrice;
 
-	@Size(min = 3, max = 500)
+	@Size(max = 500)
 	@Column(name = "MARGIN")
 	private String margin;
 
-	@Size(min = 3, max = 500)
+	@Size(max = 500)
 	@Column(name = "CATALOG_ID")
 	private String catalogID;
 
