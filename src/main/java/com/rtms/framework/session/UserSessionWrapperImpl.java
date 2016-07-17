@@ -44,7 +44,8 @@ public class UserSessionWrapperImpl implements UserSessionWrapper {
 
 	@Override
 	public UserSession fetchUserSession(final String sessionID) {
-		final UserSession userSession = (UserSession) userService.getObjectByID(UserSession.class, sessionID);
+		final long userSessionID = Long.parseLong(sessionID);
+		final UserSession userSession = (UserSession) userService.getObjectByID(UserSession.class, userSessionID);
 		return userSession;
 	}
 

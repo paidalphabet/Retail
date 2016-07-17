@@ -6,7 +6,8 @@ import javax.servlet.ServletRegistration;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.DispatcherServlet;
+
+import com.rtms.servlet.ControllerServlet;
 
 public class AppInitializer implements WebApplicationInitializer {
 
@@ -17,7 +18,7 @@ public class AppInitializer implements WebApplicationInitializer {
 		ctx.setServletContext(container);
 
 		ServletRegistration.Dynamic servlet = container.addServlet(
-				"dispatcher", new DispatcherServlet(ctx));
+				"dispatcher", new ControllerServlet(ctx));
 
 		servlet.setLoadOnStartup(1);
 		servlet.addMapping("/");

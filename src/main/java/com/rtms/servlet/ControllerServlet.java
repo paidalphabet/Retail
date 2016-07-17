@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,11 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.util.StringUtils;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import com.rtms.framework.properties.ApplicationPropertiesConfigurator;
-import com.rtms.service.BaseService;
 import com.rtms.user.service.UserService;
 
 public class ControllerServlet extends DispatcherServlet {
@@ -28,6 +27,16 @@ public class ControllerServlet extends DispatcherServlet {
 	private final static String pluginProperty = "com.rtms.bootstrap.plugin.list";
 
 	private String pluginList = null;
+	
+
+	public ControllerServlet() {
+		super();
+	}
+
+
+	public ControllerServlet(AnnotationConfigWebApplicationContext ctx) {
+		super(ctx);
+	}
 
 	/**
 	 * (non-Javadoc)
