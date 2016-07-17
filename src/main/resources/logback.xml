@@ -26,16 +26,16 @@
 
 	</appender>
 
-	<logger name="com.rtms" level="fine">
+	<logger name="com.rtms" level="finest">
 		<appender-ref ref="STDOUT" />
 	</logger>
 	
-<!-- 	<logger name="com.rtms" level="debug">
+	<logger name="com.rtms" level="debug">
 		<appender-ref ref="STDOUT" />
 	</logger>
- -->	
+ 	
 	<logger name="com.rtms" level="info">
-		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE-AUDIT" />
 	</logger>
 	
 	
