@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -28,17 +29,17 @@ public class OrderItem extends BaseObject {
 	private long orderItemID;
 
 	@ManyToOne
-//	@JoinColumn(name="ORDER_ID", insertable=false, updatable=false, nullable=false)
+	@JoinColumn(name="ORDER_ID")
 	private Order order;
-	
-	@ManyToOne
-//	@JoinColumn(name="STATE_ID", insertable=false, updatable=false, nullable=false)
+
+	//@OneToOne
+	//@JoinColumn(name="STATE_ID")
 	private  State state;
 	
-	@ManyToOne
-//	@JoinColumn(name="PRODUCT_ID", insertable=false, updatable=false, nullable=false)
+	//@OneToOne
+	//@JoinColumn(name="PRODUCT_ID")
 	private Product product;
-	
+
 	@Column(name="QUANTITY", length=3)
 	private int quantity;
 	
@@ -74,34 +75,6 @@ public class OrderItem extends BaseObject {
 	 */
 	public void setOrder(Order order) {
 		this.order = order;
-	}
-
-	/**
-	 * @return the state
-	 */
-	public State getState() {
-		return state;
-	}
-
-	/**
-	 * @param state the state to set
-	 */
-	public void setState(State state) {
-		this.state = state;
-	}
-
-	/**
-	 * @return the product
-	 */
-	public Product getProduct() {
-		return product;
-	}
-
-	/**
-	 * @param product the product to set
-	 */
-	public void setProduct(Product product) {
-		this.product = product;
 	}
 
 	/**
@@ -144,6 +117,34 @@ public class OrderItem extends BaseObject {
 	 */
 	public void setCurrencyCode(String currencyCode) {
 		this.currencyCode = currencyCode;
+	}
+
+	/**
+	 * @return the state
+	 */
+	public State getState() {
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	/**
+	 * @return the product
+	 */
+	public Product getProduct() {
+		return product;
+	}
+
+	/**
+	 * @param product the product to set
+	 */
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 }

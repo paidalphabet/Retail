@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -41,6 +42,7 @@ public class UserSession extends BaseObject{
 	private String isAuthenticated;
 	
 	@OneToOne
+	@JoinColumn(name ="ORDER_ID")
 	private Order lastOrder;
 
 	/**
@@ -98,19 +100,4 @@ public class UserSession extends BaseObject{
 	public void setIsAuthenticated(String isAuthenticated) {
 		this.isAuthenticated = isAuthenticated;
 	}
-
-	/**
-	 * @return the lastOrder
-	 */
-	public Order getLastOrder() {
-		return lastOrder;
-	}
-
-	/**
-	 * @param lastOrder the lastOrder to set
-	 */
-	public void setLastOrder(Order lastOrder) {
-		this.lastOrder = lastOrder;
-	}
-
 }

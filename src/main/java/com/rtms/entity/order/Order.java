@@ -9,8 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -31,7 +30,8 @@ public class Order extends BaseObject {
 	private long orderID;
 	
 	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ORDER_ID")	
 	private Set<OrderItem> orderLineItems;
 	
 	@Column(name = "AMOUNT", length=10)
@@ -40,8 +40,8 @@ public class Order extends BaseObject {
 	@Column(name = "CURRENCY_CODE", length=10)
 	private String currencyCode;
 	
-	@ManyToOne
-	//@JoinColumn(name="STATE_ID", insertable=false, updatable=false, nullable=false)
+	//@OneToOne
+//	@JoinColumn(name="STATE_ID")//, insertable=false, updatable=false, nullable=false)
 	private State orderState;
 
 	/**
@@ -99,7 +99,7 @@ public class Order extends BaseObject {
 	public void setCurrencyCode(String currencyCode) {
 		this.currencyCode = currencyCode;
 	}
-
+	
 	/**
 	 * @return the orderState
 	 */
