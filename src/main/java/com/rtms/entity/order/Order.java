@@ -3,6 +3,7 @@ package com.rtms.entity.order;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,7 +15,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.rtms.entity.BaseObject;
-import com.rtms.entity.state.State;
 
 /**
  * Order Object that contains different types of order line items.
@@ -22,6 +22,10 @@ import com.rtms.entity.state.State;
 @Entity
 @Table(name = "ORDER")
 public class Order extends BaseObject {
+	
+	public final String ORDER_OPEN = "OPEN";
+	public final String ORDER_SUBMIT = "SUBMITTED";
+	public final String ORDER_COMPLETE = "COMPLETE";
 
 	@Id
 	@Column(name = "ORDER_ID", length = 50)
@@ -30,8 +34,9 @@ public class Order extends BaseObject {
 	private long orderID;
 	
 	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ORDER_ID")	
+	@OneToOne(targetEntity = OrderItem.class, fetch = FetchType.LAZY)
+	@JoinColumn(name = "ORDER_ID")
+	@ElementCollection(targetClass = OrderItem.class)
 	private Set<OrderItem> orderLineItems;
 	
 	@Column(name = "AMOUNT", length=10)
@@ -39,11 +44,10 @@ public class Order extends BaseObject {
 	
 	@Column(name = "CURRENCY_CODE", length=10)
 	private String currencyCode;
-	
-	//@OneToOne
-//	@JoinColumn(name="STATE_ID")//, insertable=false, updatable=false, nullable=false)
-	private State orderState;
 
+	@Column(name = "STATE_ID", length=10)
+	private String orderState;
+	
 	/**
 	 * @return the orderID
 	 */
@@ -103,14 +107,14 @@ public class Order extends BaseObject {
 	/**
 	 * @return the orderState
 	 */
-	public State getOrderState() {
+	public String getOrderState() {
 		return orderState;
 	}
 
 	/**
 	 * @param orderState the orderState to set
 	 */
-	public void setOrderState(State orderState) {
+	public void setOrderState(final String orderState) {
 		this.orderState = orderState;
 	}
 }

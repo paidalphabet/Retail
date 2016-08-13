@@ -4,7 +4,7 @@ import com.rtms.entity.product.Product;
 
 public class ProductDetailsTransformer {
 
-	public static ProductDetailsForm convertToProductDetails(final Product product) {
+	public static ProductDetailsForm convertProductDetails(final Product product) {
 		final ProductDetailsForm form = new ProductDetailsForm();
 		form.setProductID(product.getProductID());
 		form.setProductName(product.getProductName());
