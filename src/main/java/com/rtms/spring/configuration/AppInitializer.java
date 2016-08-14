@@ -14,8 +14,10 @@ public class AppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext container) throws ServletException {
 
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+		container.setInitParameter("contextConfigLocation", "/WEB-INF/controller-servlet.xml");
 		ctx.register(AppConfig.class);
 		ctx.setServletContext(container);
+		ctx.setConfigLocation("classpath:controller-servlet.xml");
 
 		ServletRegistration.Dynamic servlet = container.addServlet(
 				"dispatcher", new ControllerServlet(ctx));

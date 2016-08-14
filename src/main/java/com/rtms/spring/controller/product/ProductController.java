@@ -1,5 +1,7 @@
 package com.rtms.spring.controller.product;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +19,7 @@ import com.rtms.form.product.ProductDetailsTransformer;
 import com.rtms.service.product.ProductService;
 import com.rtms.spring.controller.BaseController;
 import com.rtms.spring.redirection.constants.RedirectionConstants;
+import com.rtms.util.HttpRequestUtil;
 
 @Controller
 public class ProductController extends BaseController{
@@ -25,6 +28,12 @@ public class ProductController extends BaseController{
 	 * productID value to be fetched from the request
 	 */
 	private static final String productID = "productID";
+	
+	private static final String COUNT = "count";
+	
+	private static final String START_VALUE = "startValue";
+	
+	private static final Integer rowCnt = 10;
 	
 	@Autowired
 	private ProductService productService;
@@ -36,7 +45,7 @@ public class ProductController extends BaseController{
 		ProductDetailsForm productDetailsForm = new ProductDetailsForm();
 		if(!"0".equals(productID)){
 			final Product product = productService.getProduct(Long.valueOf(productID));
-			productDetailsForm = ProductDetailsTransformer.convertToProductDetails(product);
+			productDetailsForm = ProductDetailsTransformer.convertProductDetails(product);
 		}
 		ModelMap model = new ModelMap();
 		model.addAttribute("command", productDetailsForm);
@@ -54,6 +63,17 @@ public class ProductController extends BaseController{
 		ModelMap model = new ModelMap();
 		model.addAttribute("command", productDetailsForm);
 		return new ModelAndView(redirectionView, model);
+	}
+	
+	@RequestMapping(value = "products", method = RequestMethod.GET)
+	public ModelAndView getProductList(final HttpServletRequest request, final HttpServletResponse response){
+		final Integer startValue = HttpRequestUtil.getIntegerParameter(request, START_VALUE);
+		final List<ProductDetailsForm> productsList = productService.getProducts(startValue, rowCnt);
+		final Long productCount = productService.getProductCount();
+		final ModelAndView model = new ModelAndView(RedirectionConstants.STORE);
+		model.addObject("products", productsList);
+		model.addObject("productCount", productCount);
+		return model;
 	}
 
 }

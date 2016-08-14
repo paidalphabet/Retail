@@ -36,6 +36,7 @@ public class ControllerServlet extends DispatcherServlet {
 
 	public ControllerServlet(AnnotationConfigWebApplicationContext ctx) {
 		super(ctx);
+		ApplicationContextHolder.setApplicationContext(ctx);
 	}
 
 	/**
@@ -46,7 +47,7 @@ public class ControllerServlet extends DispatcherServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		initializeProperties();
-		final ApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(config.getServletContext());
+		final ApplicationContext applicationContext = ApplicationContextHolder.getApplicationContext();
 		try{
 		initializePlugins(applicationContext);
 		}catch(final Exception e){
@@ -81,7 +82,7 @@ public class ControllerServlet extends DispatcherServlet {
 	@Override
 	protected void service(final HttpServletRequest request, final HttpServletResponse response)
 			throws ServletException, IOException {
-		executePlugins(request, response, WebApplicationContextUtils.getWebApplicationContext(getServletContext()));
+		executePlugins(request, response, ApplicationContextHolder.getApplicationContext());
 		super.service(request, response);
 	}
 

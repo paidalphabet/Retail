@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -32,12 +31,12 @@ public class OrderItem extends BaseObject {
 	@JoinColumn(name="ORDER_ID")
 	private Order order;
 
-	//@OneToOne
-	//@JoinColumn(name="STATE_ID")
+	@ManyToOne
+	@JoinColumn(name="STATE_ID")
 	private  State state;
 	
-	//@OneToOne
-	//@JoinColumn(name="PRODUCT_ID")
+	@ManyToOne
+	@JoinColumn(name="PRODUCT_ID")
 	private Product product;
 
 	@Column(name="QUANTITY", length=3)
