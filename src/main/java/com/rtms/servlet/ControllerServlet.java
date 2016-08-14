@@ -49,7 +49,7 @@ public class ControllerServlet extends DispatcherServlet {
 		initializeProperties();
 		final ApplicationContext applicationContext = ApplicationContextHolder.getApplicationContext();
 		try{
-		initializePlugins(applicationContext);
+			initializePlugins(applicationContext);
 		}catch(final Exception e){
 			e.printStackTrace();
 		}

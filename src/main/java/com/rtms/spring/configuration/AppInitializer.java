@@ -19,8 +19,7 @@ public class AppInitializer implements WebApplicationInitializer {
 		ctx.setServletContext(container);
 		ctx.setConfigLocation("classpath:controller-servlet.xml");
 
-		ServletRegistration.Dynamic servlet = container.addServlet(
-				"dispatcher", new ControllerServlet(ctx));
+		ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new ControllerServlet(ctx));
 
 		servlet.setLoadOnStartup(1);
 		servlet.addMapping("/");

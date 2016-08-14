@@ -1,6 +1,8 @@
 <html>
 <head>
-	<title>Quartz iStorage</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+	<title>Admin</title>
 </head>
 <body>
         <form name="loginForm" method="post" action="login" onsubmit="javascript:submitForm()">
