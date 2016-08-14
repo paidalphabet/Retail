@@ -7,7 +7,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-	<script src="js/cart/shopping-cart.js" type="text/javascript"/>
 	<title>Store</title>
 </head>
 <body>

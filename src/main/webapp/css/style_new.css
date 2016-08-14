@@ -1,0 +1,283 @@
+/**Global Css**/
+body {font-family:open sans!important}
+h1, h2, h3,h4, h5, h6 {text-transform:inherit!important;  font-weight:normal; font-family:open sans!important; margin:0px; padding:0px}
+ul {list-style:none; margin:0px; padding:0px}
+@font-face {font-family: open sans; src: url(../fonts/OpenSans.ttf);}
+@font-face {font-family: oswald; src: url(../fonts/Oswald-Regular.ttf);}
+.wrapper {background:#f6f6f6 url("../images/bg.png") repeat-x scroll 0 0; width:100%; overflow:hidden}
+.span12 {background:none}
+
+/**Header Css**/
+.loginwrapp ul {float: right; margin:5px 0 10px; padding-right:20px}
+.loginwrapp ul li {float:left;  text-transform:uppercase; line-height:14px}
+.loginwrapp ul li a {color:#fff; font-family:oswald; padding:0 8px; display:block}
+.loginwrapp ul li:first-child a{border-right:1px solid #fff}
+.navigation .navbar-header a {font-size:36px!important; color:#fff!important;text-transform:uppercase; font-family: oswald; }
+.navigation .navbar {background:none!important; border:none!important; font-family: oswald;}
+.navigation .navbar-nav li a {text-transform:uppercase; color:#fff!important; font-size:18px}
+.navigation .navbar-nav li a:hover, .navigation .navbar-nav li a.active {background:#fdac4c!important;}
+
+/**Main Css**/
+.searchwrapp  {text-align:center; color:#fff; text-transform:uppercase}
+.searchwrapp h1 {font-size: 46px;font-weight: bold; margin: 24px 0 15px;}
+.searchwrapp input, .searchwrapp .btn {border-radius: 0 !important;}
+.searchwrapp .btn {font-family:oswald; text-transform:uppercase!important}
+.searchwrapp .searchelem {margin:24px auto 0!important}
+.serviceswrapp .alignclss {text-align:center; text-transform:uppercase}
+.serviceswrapp h3 {margin:40px 0 20px; text-align:center; text-transform:uppercase; color:#fff; font-weight:bold}
+.serviceswrapp .servicesicon h5 {background: #fff;color: #333; margin: 14px auto; width:150px; overflow: hidden;padding: 7px 0;}
+.servicesicon {float: left;overflow: hidden;text-align: center;width: 20%;}
+
+.flowrapp {background: #fff; padding: 40px 0; border-bottom:1px solid #005387; margin-bottom: 30px;}
+.flowrappinner {background:url("../images/arrow.png") no-repeat scroll right 70px;  font-family: oswald;}
+.flowrapp .col-sm-4:last-child .flowrappinner {background:none; padding:0}
+.flowrappinner h3 {color:#005387; font-size: 24px;font-weight: bold;min-height: 56px}
+.flowrappinner .content-heading {padding-right:82px}
+.flowrappinner .paddingltcss {padding-left:20px}
+.flowrappinner .paddingrtcss {padding-right:20px}
+
+.goalswrapp {max-width:1000px}
+.goalswrapp .heading p {font-size: 13px;margin: 0; padding: 5px 0 0; text-transform: uppercase;}
+.goalswrapp .heading span {font-size: 16px;font-weight: bold}
+.goalswrapp .heading {padding: 20px 50px;}
+.goalswrapp img {width:100%}
+.goalswrapp .col-sm-4 {margin-top: 20px;color:#fff;}
+.goalswrapp .colorgreen	{background:#98cb4a;}
+.goalswrapp .colorblue {background:#2ca8c2;}
+.goalswrapp .colorred {background:#f76d3c;}
+.goalswrapp .imgwrapp h3 {padding: 83px 60px;}
+.goalswrapp .heading h3 {border-right: 1px solid #fff;color: #fff;display: inline; float: left; margin: 0 15px 0 0; padding: 0 15px 0 0;text-align: left; line-height:23px; font-size:15px}
+.goalswrapp .colorgreen .imgwrapp {background:url("../images/house.jpg") no-repeat scroll 0 0 / cover ;display: block;height: 180px;text-align: center; border-top:1px solid #fff; border-bottom:1px solid #fff}
+.goalswrapp .colorblue .imgwrapp {background:url("../images/retirement.jpg") no-repeat scroll 0 0 / cover ;display: block;height: 180px;text-align: center; border-top:1px solid #fff; border-bottom:1px solid #fff}
+.goalswrapp .colorred .imgwrapp {background:url("../images/bilud.jpg") no-repeat scroll 0 0 / cover ;display: block;height: 180px;text-align: center; border-top:1px solid #fff; border-bottom:1px solid #fff}
+.goalswrapp .infoclss { overflow: hidden; padding: 10px 14px; width: auto;}
+.goalswrapp .infoclss .info {overflow: hidden;width: 100%;font-size: 13px;}
+.goalswrapp .infoclss .info label {float: left;text-align: left;font-weight: normal; text-transform:uppercase}
+.goalswrapp .infoclss .info span {float: right; text-align:right;}
+
+.tabwrapp .nav {width:100%; overflow:hidden; height: 120px;}
+.tabwrapp .nav li {overflow: hidden;text-align: center;width: 33.3%; background:#fff; margin: 0 !important; border-right: 1px solid #ccc;}
+.tabwrapp .nav li.grows {border:none}
+.tabwrapp .nav-tabs {border-bottom:none !important;}
+.tabwrapp .nav li a	{font-family:open sans; font-size:15px; text-transform: inherit; border-radius:0!important; margin:0px; padding:0px;  border:none!important;}
+.tabwrapp .nav li.active a {background:#fdac4c!important; color:#fff!important}
+.tabwrapp .nav li.active.about a {background:#fdac4c url("../images/ac-about.png") no-repeat scroll center 15px !important;}
+.tabwrapp .nav li.about a {background:url("../images/about.png") no-repeat scroll center 15px !important;}
+.tabwrapp .nav li.active.expenses a {background:#fdac4c url("../images/ac-expences.png") no-repeat scroll center 15px !important;}
+.tabwrapp .nav li.expenses a {background:url("../images/expenses.png") no-repeat scroll center 15px !important}
+.tabwrapp .nav li a { min-height:136px;border-bottom: 1px solid #ccc !important;color: #000 !important;display: block; padding:6em 0 20px !important;}
+.tabwrapp .nav li.active.grows a {background:#fdac4c url("../images/ac-money.png") no-repeat scroll center 15px !important;}
+.tabwrapp .nav li.grows a {background:url("../images/money.png") no-repeat scroll center 15px !important;}
+.tabelment  {margin-top:25px}
+.tabelment .navbar {margin:0 auto 25px; max-width:700px}
+.tabelment h1 {font-size: 24px; margin:0px; text-align:center; color:#fff}
+.tabelment .tab-content {border:1px solid #ccc;overflow: hidden;width: auto;  margin-top: -1px !important; text-align:center; padding-bottom:10px; background:#fff; max-width:800px; margin:0 auto}
+.tabelment .tab-content img { display: block;margin: 0 auto !important;}
+.tab-pane h2 {font-weight:normal}
+.nextprevious {margin: 20px 10px 0;}
+.nextprevious .btn {color: #fff;font-family:open sans;font-size:14px;font-weight:normal; padding:7px 15px; text-transform: uppercase;border-radius:6px !important; width:120px}
+.nextprevious .button-next {background:#06a7ad url("../images/button-next.png") no-repeat scroll 100px 10px; padding-right:40px}
+.nextprevious .button-previous {background:#06a7ad url("../images/button-previous.png") no-repeat scroll 8px 10px; padding-left:30px}
+.color h5 {color:#000!important; text-align:center}
+.align-left {text-align:left!important}
+.expensesHeading .color {padding-bottom:15px!important}
+.expensesHeading {padding:0px 12px 0;}
+.expensesHeading h5 {color: #005387;font-size:12px; text-align: center; margin-top:5px}
+.expensesHeading {text-align:center}
+.expensesHeading .row {border-bottom: 1px solid #f5f5f5; padding:10px 0px 10px 0px;}
+.expensesHeading .fa {background: #fdac4c none repeat scroll 0 0;border-radius: 50%; color: #fff; float: left;height: 30px; line-height: 30px;margin-right: 10px;text-align: center;width: 30px;}
+.expensesHeading .col-md-2  input {display: inline;float: left; width:95px; padding:3px; border:1px solid #eee; letter-spacing: 1px;}
+.expensesHeading .col-md-3 h5 {text-align:left}
+.expensesHeading .fa.fa-inr {background:none!important; color: #333 !important;font-size:16px !important; margin-right:0}
+.expensesHeading .green{ color: #119420!important;font-size:20px !important;}
+.expensesHeading .green .fa {float:none}
+.expensesHeading .fa.fa-times {background:none!important;color: #999 !important;font-size: 15px !important; margin:0px 0 0 0}
+.expensesHeading .fa.fa-times:hover {color:#e75d4f!important}
+.expensesHeading .fa.fa-plus-circle {background:none!important;color: #999 !important;font-size: 20px !important;; margin:4px 0 0 0}
+.expensesHeading .fa.fa-plus-circle:hover {color:#2c8103!important}
+.expensesHeading .col-md-4 img {margin: inherit !important;}
+.expensesHeading .borderradius {color:#005387!important; font-size:25px!important}
+.expensesHeading .bluecolor, .expensesHeading .bluecolor  h5{color:#005387!important; font-size:20px!important; text-align:left}
+.expensesHeading .borderradius .green {color:#fff}
+
+#messages h3 {color:#005387}
+#messages span {padding:5px; font-size:20px;display:block; }
+#messages .rightgrapwrapp {width:100%; overflow:hidden; padding:20px 0 0 0}
+#messages .rightgrapwrapp .grapwrappinn {width:100%; text-align:left}
+#messages .rightgrapwrapp .grapwrappinn  p {margin:10px 0}
+#messages .rightgrapwrapp .align {margin:10px 0 0 0}
+.margintop {margin:15px 0 0 0}
+#messages .rightgrapwrapp .align span {float:left; color:#fdac4c!important; font-size:25px; }
+#messages .rightgrapwrapp .align p {float:left; padding:5px 0 0 10px; font-size:13px}
+
+#messages  label {background:#787878; width:30px; height:30px; padding:5px; display:block; color:#fff; border-radius:50%}
+#messages .col-md-7 h4 {margin:10px 0}
+#messages .col-md-7 a {font-size:16px; font-weight:bold}
+h4.maillink {width:100%; margin:0px 10px 5px 10px; text-align:right; float:right}
+
+.lastcolor {background:#fdac4c url("../images/button-next.png") no-repeat scroll 100px 10px!important}
+.summarywrapp {background:#fff; padding:20px 15px 25px; overflow:hidden; border:1px solid #ccc; margin-bottom:30px}
+.summarywrapp h2 {font-size:36px; color:#005387}
+.summarywrapp h2 small {color:#005387}
+.summarywrapp .summryinn {width:100%; overflow:hidden}
+.summarywrapp a i {font-size:20px; color:#333; padding:0 5px; float:right}
+.summarywrapp h4 {color:#005387; font-size:24px; margin:10px 0 15px}
+.summarywrapp span {border:2px solid #7aa4be; color:#444; font-size:20px; padding:5px; width:150px; display:block; margin:5px 0 10px; font-weight:bold; text-align:center}
+.summarywrapp h5 {color:#005387; font-size:24px; margin:25px 0 10px 0; font-weight:normal}
+.summarywrapp  table {margin-bottom:30px; font-size:18px}
+.summarywrapp  table tr td {padding:5px; color:#6f25cc}
+.summarywrapp  table tr td .fa-inr {color:#6f25cc}
+.summarywrapp  table tr th {padding:5px; color:#f06b55}
+.summarywrapp .editlink {border:1px solid #7aa4be; background:#f5f5f5; font-size:16px; font-weight:bold; padding:5px; width:150px; text-align:center; display:block}
+.summarywrapp p {font-size:24px}
+.summarywrapp h6 {color:#333; font-size:16px; margin:15px 0 10px 0; font-weight:normal; text-transform:inherit!important}
+
+
+
+/**footer Css**/
+.footerclss {background:#3a3a3a; color:#fff;margin-top: 50px; color: #a2a2a2;font-size: 13px;font-weight: bold;padding-bottom: 26px;}
+.footer_bottom {background:#005387; color:#fff; padding:10px 0 0; font-size: 13px !important;font-weight: bold;}
+.footer_bottom a {color:#fff;}
+.footerclss .col-sm-3 h3 {margin-bottom: 20px;font-size: 20px;font-weight: bold; margin:20px 0 20px; color:#d3d3d3}
+.footerclss .col-sm-3 li {margin-bottom: 12px;}
+.footerclss .col-sm-3 ul {list-style:none;margin: 0;padding: 0; width:100%; overflow:hidden}
+.footerclss .col-sm-3 ul li a {color:#a2a2a2}
+.footerclss .social li {float: left; margin:0 5px;}
+.footerclss .social li a {display:table-cell; vertical-align:middle; text-align:center; background:#5a5a5a; width:46px; height:46px}
+.footerclss .social li a i {font-size:20px; color:#fff}
+.footerclss .col-sm-3 ul li a:hover {text-decoration:none}
+.footerclss .col-sm-3 p { margin: 0;}
+.footerclss p.loaction {display: block; font-size: 17px; text-transform: uppercase;}
+.footerclss input.subscribe {background: #565252; border:none;float: left !important;height: 35px;width: 68%;}
+.footerclss .btn {background:#1d1d1d;font-size: 12px; height: 35px; border-radius:0px}
+.footerclss .btn:hover {color: #a2a2a2;}
+
+
+/**Miscellaneous**/
+.fllt {float:left!important}
+.flrt {float:right!important}
+.alignclss {text-align:center; color:#fff; text-transform:uppercase}
+.alignltclss {text-align:left; color:#fff; text-transform:uppercase}
+.alignrtclss {text-align:right; color:#fff; text-transform:uppercase}
+.colorclss {color:#196493!important}
+.marginbottom {margin-bottom:10px!important}
+button, input, select, textarea {border:1px solid #ccc}
+
+/**Media Css**/
+@media (max-width: 1024px) {
+.tabelment .tab-content img {width:100%}
+}
+@media (max-width: 980px) {
+.wrapper .navigation .navbar-header a {font-size: 32px !important;}
+.goalswrapp .heading {padding: 20px 16px;}
+.footerclss input.subscribe {width:49%}
+.footerclss .social li {margin-bottom:4px}
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {margin-bottom: 20px!important;overflow: hidden!important;}
+.expensesHeading .col-md-2 input {width: 80%;}
+.expensesHeading  input {width: 100%;}
+#messages .rightgrapwrapp .grapwrappinn{padding-left:20px}
+.footer_bottom p {text-align:center}
+}
+
+@media (max-width: 768px) {
+.flowrappinner .content-heading .flrt {float:left!important}
+.footer_bottom .fllt, .footer_bottom .flrt {float:none!important; text-align:center}
+.flowrappinner {background:none;padding: 0;}
+.servicesicon {width: 100%; float:none; background:#005387; padding:10px 0;}
+}
+
+@media (max-width: 480px) {
+.tabelment .tab-content {background:#fff}
+.tabwrapp .nav li {float:none!important; width:100%}
+.tabelment .tabwrapp .nav li.active.about a,.tabelment .tabwrapp .nav li.about a, .tabelment .tabwrapp .nav li.expenses a, .tabelment .tabwrapp .nav li.active.expenses a,.tabelment .tabwrapp .nav li.active.grows a,.tabelment .tabwrapp .nav li.grows a {background:none!important}
+.wrapper .tabelment .tabwrapp .nav li.active a {background:#fdac4c!important }
+.tabwrapp .nav li a {min-height: inherit;padding: 0 !important;}
+}
+
+@media (max-width: 320px) {
+.goalswrapp .infoclss .info {font-size: 18px;}
+}
+
+.expenseBigBold{font-size: 16px !important; letter-spacing: 1px;}
+.dngrColr{color: red;}
+.centeraligntext{text-align: center !important;}
+.rightaligntext{text-align: right; !important;}
+.leftaligntext{text-align: left; !important;}
+.btn-custome-css{background-color: #1abc9c;color: #fff;width: 100%;}
+.a-custome-css{background-color: #1abc9c;color: #fff !important;width: 50%;}
+.a-login-btn{margin-right: 0 !important;border-radius: 0 !important;border-color: #000 !important;border: none !important;}
+.erroralert{border-color: #843534; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #ce8483;}
+.erroralert:focus{border-color: #843534;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #ce8483;}
+.highlightText{color: #337ab7;font-size: 16px;font-weight: bold;margin: 0 10%;text-decoration: underline;}
+.portfolio_container{min-height:80px;max-height: 80px;overflow: auto;overflow-x: hidden;}
+
+/* Below CSS added for sub-menu - start */
+
+#navbarCollapse .has-sub {
+  z-index: 1;
+}
+#navbarCollapse .has-sub:hover > ul {
+  display: block;
+}
+#navbarCollapse .has-sub ul {
+  display: none;
+  position: absolute;
+  width: inherit;
+  top: 100%;
+  left: 0;
+}
+#navbarCollapse.align-right .has-sub ul {
+  left: auto;
+  right: 0;
+}
+#navbarCollapse .has-sub ul li {
+  *margin-bottom: -1px;
+  width: 100%;
+}
+#navbarCollapse .has-sub ul li a {
+  background: #0fa1e0;
+  border-bottom: 1px dotted #31b7f1;
+  font-size: 16px;
+  filter: none;
+  display: block;
+  line-height: 120%;
+  padding: 10px;
+  color: #ffffff;
+}
+#navbarCollapse .has-sub ul li:hover a {
+  background: #0c7fb0;
+}
+#navbarCollapse ul ul li:hover > a {
+  color: #ffffff;
+}
+#navbarCollapse .has-sub .has-sub:hover > ul {
+  display: block;
+}
+#navbarCollapse .has-sub .has-sub ul {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+#navbarCollapse.align-right .has-sub .has-sub ul,
+#navbarCollapse.align-right ul ul ul {
+  left: auto;
+  right: 100%;
+}
+#navbarCollapse .has-sub .has-sub ul li a {
+  background: #0c7fb0;
+  border-bottom: 1px dotted #31b7f1;
+}
+#navbarCollapse .has-sub .has-sub ul li a:hover {
+  background: #0a6d98;
+}
+#navbarCollapse ul ul li.last > a,
+#navbarCollapse ul ul li:last-child > a,
+#navbarCollapse ul ul ul li.last > a,
+#navbarCollapse ul ul ul li:last-child > a,
+#navbarCollapse .has-sub ul li:last-child > a,
+#navbarCollapse .has-sub ul li.last > a {
+  border-bottom: 0;
+}
+
+/* Above CSS added for sub-menu - end */

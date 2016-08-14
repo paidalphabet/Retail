@@ -20,9 +20,9 @@ import com.rtms.entity.BaseObject;
  * Order Object that contains different types of order line items.
  */
 @Entity
-@Table(name = "ORDER")
+@Table(name = "ORD_ORDER")
 public class Order extends BaseObject {
-	
+
 	public final String ORDER_OPEN = "OPEN";
 	public final String ORDER_SUBMIT = "SUBMITTED";
 	public final String ORDER_COMPLETE = "COMPLETE";
@@ -32,22 +32,22 @@ public class Order extends BaseObject {
 	@SequenceGenerator(name = "ORDER_SEQ", sequenceName = "ORDER_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_SEQ")
 	private long orderID;
-	
-	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+
+	// @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
 	@OneToOne(targetEntity = OrderItem.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "ORDER_ID")
 	@ElementCollection(targetClass = OrderItem.class)
 	private Set<OrderItem> orderLineItems;
-	
-	@Column(name = "AMOUNT", length=10)
+
+	@Column(name = "AMOUNT", length = 10)
 	private String amount;
-	
-	@Column(name = "CURRENCY_CODE", length=10)
+
+	@Column(name = "CURRENCY_CODE", length = 10)
 	private String currencyCode;
 
-	@Column(name = "STATE_ID", length=10)
+	@Column(name = "STATE_ID", length = 10)
 	private String orderState;
-	
+
 	/**
 	 * @return the orderID
 	 */
@@ -103,7 +103,7 @@ public class Order extends BaseObject {
 	public void setCurrencyCode(String currencyCode) {
 		this.currencyCode = currencyCode;
 	}
-	
+
 	/**
 	 * @return the orderState
 	 */

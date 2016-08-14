@@ -5,10 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.rtms.entity.BaseObject;
+import com.rtms.entity.order.Order;
 
 /**
  * <b><author>Mahavir</author></b>
@@ -32,22 +35,23 @@ public class UserSession extends BaseObject {
 
 	@Column(name = "IS_AUTHENTICATED", length = 2)
 	private String isAuthenticated;
-
-	@Column(name = "ORDER_ID", length = 50)
-	private long lastOrderID;
+	
+	@ManyToOne
+	@JoinColumn(name="ORDER_ID")
+	private Order lastOrder;
 
 	/**
 	 * @return the lastOrder
 	 */
-	public long getLastOrderID() {
-		return lastOrderID;
+	public Order getLastOrder() {
+		return lastOrder;
 	}
 
 	/**
 	 * @param lastOrder the lastOrder to set
 	 */
-	public void setLastOrderID(final long lastOrderID) {
-		this.lastOrderID = lastOrderID;
+	public void setLastOrder(final Order lastOrder) {
+		this.lastOrder = lastOrder;
 	}
 
 	/**
